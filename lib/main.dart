@@ -1,27 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'home_screen.dart';
-import 'pokemon_provider.dart';
+import 'providers/pokemon_provider.dart';
+import 'screens/home_screen.dart';
 
 void main() {
   runApp(
     ChangeNotifierProvider(
-      create: (context) => PokemonProvider(),
-      child: const PokedexApp(),
+      create: (_) => PokemonProvider()..fetchPokemonList(),  // ✅ Initializes provider and fetches data
+      child: const MyApp(),
     ),
   );
 }
 
-class PokedexApp extends StatelessWidget {
-  const PokedexApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Pokedex',
+      title: 'Pokédex',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.red,
+        scaffoldBackgroundColor: Colors.white,  // Keeps background clean
+        textTheme: const TextTheme(
+          bodyMedium: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),  // Improved text readability
+        ),
       ),
       home: const HomeScreen(),
     );
