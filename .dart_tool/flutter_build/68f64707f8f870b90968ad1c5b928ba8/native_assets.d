@@ -1,0 +1,1 @@
+ /home/kali/AndroidStudioProjects/pokedex/.dart_tool/flutter_build/68f64707f8f870b90968ad1c5b928ba8/native_assets.yaml: 
